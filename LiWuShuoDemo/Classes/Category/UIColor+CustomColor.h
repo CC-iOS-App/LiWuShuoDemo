@@ -12,4 +12,6 @@
 
 + (instancetype)themeColor;
 
++ (instancetype) collectionBackgroundColor;
+
 @end

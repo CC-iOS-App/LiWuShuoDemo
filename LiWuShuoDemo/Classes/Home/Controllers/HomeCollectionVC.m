@@ -8,11 +8,13 @@
 
 #import "HomeCollectionVC.h"
 #import "UIImage+Extension.h"
+#import "UIColor+CustomColor.h"
 #import "HomeCell.h"
 #import "HandPickrequest.h"
 #import "MJExtension.h"
 #import "Item.h"
 #import "AFNetworking.h"
+#import "MJRefresh.h"
 
 static CGFloat const kMargin     = 10;
 static CGFloat const kItemHeight = 160;
@@ -21,11 +23,35 @@ static CGFloat const kItemHeight = 160;
 
 @property (nonatomic, strong) NSMutableArray *items;
 
+@property (nonatomic ,strong) NSArray *refreshImages;
+
 @end
 
 @implementation HomeCollectionVC
 
 static NSString * const kReuseIdentifier = @"Cell";
+
+- (NSArray *)refreshImages
+{
+    if (!_refreshImages) {
+        _refreshImages = @[[UIImage imageNamed:@"box_01"],[UIImage imageNamed:@"box_02"],[UIImage imageNamed:@"box_03"],[UIImage imageNamed:@"box_04"],[UIImage imageNamed:@"box_05"],[UIImage imageNamed:@"heart"],[UIImage imageNamed:@"box_05"],[UIImage imageNamed:@"box_04"],[UIImage imageNamed:@"box_03"],[UIImage imageNamed:@"box_02"],[UIImage imageNamed:@"box_01"]];
+    }
+    return _refreshImages;
+}
+
+- (void)setRefreshHeaderFooter
+{
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    header.lastUpdatedTimeLabel.hidden = YES;
+    header.stateLabel.hidden = YES;
+    [header setImages:@[[UIImage imageNamed:@"box_01"]] forState:MJRefreshStateIdle];
+    [header setImages:@[[UIImage imageNamed:@"box_01"]] forState:MJRefreshStatePulling];
+    [header setImages:self.refreshImages forState:MJRefreshStateRefreshing];
+    self.collectionView.mj_header = header;
+    
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    self.collectionView.mj_footer = footer;
+}
 
 - (NSMutableArray *)items
 {
@@ -40,11 +66,12 @@ static NSString * const kReuseIdentifier = @"Cell";
  
     [self setUpNavigationItems];
     [self setFlowLayout];
-     self.collectionView.backgroundColor = [UIColor whiteColor];
+    [self setRefreshHeaderFooter];
+
     // Register cell classes
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil] forCellWithReuseIdentifier:kReuseIdentifier];
     
-    [self getDataBack];
+    [self loadNewData];
     
     // Do any additional setup after loading the view.
 }
@@ -57,6 +84,7 @@ static NSString * const kReuseIdentifier = @"Cell";
     layout.minimumLineSpacing = kMargin;
     self.collectionView.collectionViewLayout = layout;
     self.collectionView.showsVerticalScrollIndicator = NO;
+      self.collectionView.backgroundColor = [UIColor collectionBackgroundColor];
     
 }
 
@@ -67,13 +95,26 @@ static NSString * const kReuseIdentifier = @"Cell";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage nonRenderingImageName:@"feed_signin"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonItemClicked)];
 }
 
-- (void)getDataBack
+- (void)loadNewData
 {
     HandPickrequest *request = [[HandPickrequest alloc] init];
     [request starWithFinishedBlock:^(NSError *error, id result) {
         NSLog(@"error is:%@",error);
         if (!error) {
+            [self.collectionView.mj_header endRefreshing];
             self.items = [Item mj_objectArrayWithKeyValuesArray:[result[@"data"] objectForKey:@"items"]];
+            [self.collectionView reloadData];
+        }
+    }];
+}
+
+- (void)loadMoreData
+{
+    LoadMoreRequest *request = [[LoadMoreRequest alloc] init];
+    [request starWithFinishedBlock:^(NSError *error, id result) {
+        if (!error) {
+            [self.collectionView.mj_footer endRefreshing];
+            [self.items addObjectsFromArray:[Item mj_objectArrayWithKeyValuesArray:[result[@"data"] objectForKey:@"items"]]];
             [self.collectionView reloadData];
         }
     }];

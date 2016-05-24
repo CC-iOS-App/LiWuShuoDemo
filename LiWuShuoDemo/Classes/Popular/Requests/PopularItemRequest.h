@@ -1,5 +1,5 @@
 //
-//  handPickrequest.h
+//  PopularItemRequest.h
 //  LiWuShuoDemo
 //
 //  Created by XUN WANG on 16/5/23.
@@ -8,10 +8,10 @@
 
 #import "BaseRequest.h"
 
-@interface HandPickrequest : BaseRequest
+@interface PopularItemRequest : BaseRequest
 
 @end
 
-@interface LoadMoreRequest : BaseRequest
+@interface MoreItemRequest : BaseRequest
 
 @end

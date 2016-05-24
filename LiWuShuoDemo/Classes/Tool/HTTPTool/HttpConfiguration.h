@@ -8,13 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//FOUNDATION_EXPORT NSString * const kBaseURL;
-//FOUNDATION_EXPORT NSString * const kClientID;
-//FOUNDATION_EXPORT NSString * const kClientSecret;
-//
-//FOUNDATION_EXPORT NSString * const kAuthorizeURL;
-//FOUNDATION_EXPORT NSString * const kRedirect_uri;
-//FOUNDATION_EXPORT NSString * const kScope;
 
 @interface HttpConfiguration : NSObject
 

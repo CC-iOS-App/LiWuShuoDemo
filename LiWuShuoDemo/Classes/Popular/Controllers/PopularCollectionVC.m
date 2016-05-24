@@ -8,26 +8,110 @@
 
 #import "PopularCollectionVC.h"
 #import "UIImage+Extension.h"
+#import "UIColor+CustomColor.h"
+#import "PopularItemRequest.h"
+#import "MJExtension.h"
+#import "PopularItem.h"
+#import "PopularCell.h"
+#import "MJRefresh.h"
+
+static CGFloat const kMargin     = 10;
+static CGFloat const kItemHeight = 243;
+static NSString * const reuseIdentifier = @"PopularCell";
 
 @interface PopularCollectionVC ()
+
+@property (nonatomic, strong) NSMutableArray *items;
+
+@property (nonatomic, strong) NSArray *refreshImages;
 
 @end
 
 @implementation PopularCollectionVC
 
-static NSString * const reuseIdentifier = @"Cell";
+- (NSArray *)refreshImages
+{
+    if (!_refreshImages) {
+        _refreshImages = @[[UIImage imageNamed:@"box_01"],[UIImage imageNamed:@"box_02"],[UIImage imageNamed:@"box_03"],[UIImage imageNamed:@"box_04"],[UIImage imageNamed:@"box_05"],[UIImage imageNamed:@"heart"],[UIImage imageNamed:@"box_05"],[UIImage imageNamed:@"box_04"],[UIImage imageNamed:@"box_03"],[UIImage imageNamed:@"box_02"],[UIImage imageNamed:@"box_01"]];
+    }
+    return _refreshImages;
+}
+
+- (NSMutableArray *)items
+{
+    if (!_items) {
+        _items = [NSMutableArray array];
+    }
+    return _items;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"PopularCell" bundle:nil] forCellWithReuseIdentifier:
+     reuseIdentifier];
 
+    [self setFlowLayout];
     [self setUpNavigationItems];
-    // Do any additional setup after loading the view.
+    
+    [self setRefreshHeaderFooter];
+//    [self.collectionView.mj_header beginRefreshing];
+    [self loadNewData];
+  
+}
+
+- (void)setRefreshHeaderFooter
+{
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    header.lastUpdatedTimeLabel.hidden = YES;
+    header.stateLabel.hidden = YES;
+    [header setImages:@[[UIImage imageNamed:@"box_01"]] forState:MJRefreshStateIdle];
+    [header setImages:@[[UIImage imageNamed:@"box_01"]] forState:MJRefreshStatePulling];
+    [header setImages:self.refreshImages forState:MJRefreshStateRefreshing];
+    self.collectionView.mj_header = header;
+    
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    self.collectionView.mj_footer = footer;
+}
+
+- (void)loadNewData
+{
+    PopularItemRequest *request = [[PopularItemRequest alloc] init];
+    [request starWithFinishedBlock:^(NSError *error, id result) {
+        if (!error) {
+            [self.collectionView.mj_header endRefreshing];
+            [self.items removeAllObjects];
+            self.items = [DataNType mj_objectArrayWithKeyValuesArray:[result[@"data"] objectForKey:@"items"]];
+            [self.collectionView reloadData];
+        }
+    }];
+}
+
+- (void)loadMoreData
+{
+    MoreItemRequest *request = [[MoreItemRequest alloc] init];
+    [request starWithFinishedBlock:^(NSError *error, id result) {
+        if (!error) {
+            [self.collectionView.mj_footer endRefreshing];
+            [self.items addObjectsFromArray:[DataNType mj_objectArrayWithKeyValuesArray:[result[@"data"] objectForKey:@"items"]]];
+            [self.collectionView reloadData];
+        }
+    }];
+}
+
+- (void)setFlowLayout
+{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width - 3 * kMargin) * 0.5, kItemHeight);
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+//    layout.minimumLineSpacing = kMargin;
+//    layout.minimumInteritemSpacing = kMargin;
+    self.collectionView.collectionViewLayout = layout;
+    self.collectionView.contentInset = UIEdgeInsetsMake(kMargin, kMargin, 0, kMargin);
+    self.collectionView.showsVerticalScrollIndicator = NO;
+    self.collectionView.backgroundColor = [UIColor collectionBackgroundColor];
+    
 }
 
 - (void)setUpNavigationItems
@@ -35,6 +119,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.title = @"热门";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage nonRenderingImageName:@"icon_navigation_search"] style:UIBarButtonItemStylePlain target:self action:@selector(searchItemClicked)];
 }
+
 
 - (void)searchItemClicked
 {
@@ -59,20 +144,20 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
+    return self.items.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    PopularCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+
+    DataNType *item = self.items[indexPath.row];
+    cell.item = item.data;
     
     return cell;
 }

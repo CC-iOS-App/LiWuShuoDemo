@@ -15,4 +15,9 @@
     return [self colorWithRed:251.0/255 green:14.0/255 blue:56.0/255 alpha:1];
 }
 
++ (instancetype)collectionBackgroundColor
+{
+    return [self colorWithRed:240.0/255 green:240.0/255 blue:240.0/255 alpha:1];
+}
+
 @end

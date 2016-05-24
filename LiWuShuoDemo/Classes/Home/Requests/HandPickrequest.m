@@ -17,16 +17,21 @@
 
 - (NSString *)requestURL
 {
-    return @"http://api.liwushuo.com/v2/channels/101/items";
+    return @"http://api.liwushuo.com/v2/channels/101/items?ad=2&gender=1&generation=2&limit=20&offset=0";
 }
 
-- (NSDictionary *)parameters
+@end
+
+@implementation LoadMoreRequest
+
+- (RequestMethod)requestMethod
 {
-    return @{@"ad"        :@"2",
-             @"gender"    :@"1",
-             @"generation":@"2",
-             @"limit"     :@"20",
-             @"offset"    :@"0"};
+    return RequestMethodGet;
+}
+
+- (NSString *)requestURL
+{
+    return @"http://api.liwushuo.com/v2/channels/101/items?generation=2&gender=1&limit=20&ad=2&offset=20";
 }
 
 @end
