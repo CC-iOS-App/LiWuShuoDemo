@@ -66,7 +66,12 @@
     
 }
 
-
+- (void)setCenterX:(CGFloat)centerX
+{
+    CGPoint center = self.center;
+    center.x = centerX;
+    self.center = center;
+}
 
 
 

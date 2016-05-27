@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Banners : NSObject
+@interface Banner : NSObject
 
 @property (nonatomic, strong) NSURL *image_url;
 @property (nonatomic, copy) NSString *type;
 
+
+@end
+
+@interface SecondBanner : NSObject
+@property (nonatomic, strong) NSURL *image_url;
 
 @end

@@ -6,8 +6,13 @@
 //  Copyright © 2016年 XUN WANG. All rights reserved.
 //
 
-#import "Banners.h"
+#import "Banner.h"
 
-@implementation Banners
+@implementation Banner
+
+@end
+
+@implementation SecondBanner
+
 
 @end

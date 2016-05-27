@@ -15,3 +15,11 @@
 @interface LoadMoreRequest : BaseRequest
 
 @end
+
+@interface BannerRequest : BaseRequest
+
+@end
+
+@interface SecondBannerRequest : BaseRequest
+
+@end

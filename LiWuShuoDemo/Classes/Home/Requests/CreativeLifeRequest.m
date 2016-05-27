@@ -17,7 +17,15 @@
 
 - (NSString *)requestURL
 {
-    return @"http://api.liwushuo.com/v2/channels/125/items?gender=1&generation=2&limit=20&offset=0";
+    return @"http://api.liwushuo.com/v2/channels/125/items";
+}
+
+- (NSDictionary *)parameters
+{
+    return @{@"gender":@"1",
+             @"generation":@"2",
+             @"limit":@"20",
+             @"offset":@"0"};
 }
 
 @end

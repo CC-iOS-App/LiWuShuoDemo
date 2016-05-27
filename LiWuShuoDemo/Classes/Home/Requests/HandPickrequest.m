@@ -35,3 +35,31 @@
 }
 
 @end
+
+@implementation BannerRequest
+
+- (RequestMethod)requestMethod
+{
+    return RequestMethodGet;
+}
+
+- (NSString *)requestURL
+{
+    return @"http://api.liwushuo.com/v2/banners?channel=iOS";
+}
+
+@end
+
+@implementation SecondBannerRequest
+
+- (RequestMethod)requestMethod
+{
+    return RequestMethodGet;
+}
+
+- (NSString *)requestURL
+{
+    return @"http://api.liwushuo.com/v2/secondary_banners?gender=1&generation=2";
+}
+
+@end
