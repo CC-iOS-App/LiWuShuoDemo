@@ -92,8 +92,6 @@ static NSString * const kBannerCellId = @"kBannerCellId";
 
 @end
 
-
-
 @interface SecondBannerCell ()
 
 @property (nonatomic, weak) UIImageView *imageView;
@@ -120,8 +118,6 @@ static NSString * const kBannerCellId = @"kBannerCellId";
     _banner = banner;
     [self.imageView sd_setImageWithURL:banner.image_url placeholderImage:[UIImage imageNamed:@"placeholderimage_small"]];
 }
-
-
 
 @end
 

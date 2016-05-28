@@ -105,51 +105,51 @@ static NSString * const kTopCellId = @"kTopCellId";
 - (void)loadNewData
 {
     dispatch_group_t group = dispatch_group_create();
-    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    dispatch_group_enter(group);
     
-    dispatch_group_async(group, queue, ^{//item request
+
         HandPickrequest *request = [[HandPickrequest alloc] init];
         [request starWithFinishedBlock:^(NSError *error, id result) {
             NSLog(@"Item error is:%@",error);
             if (!error) {
-                [self.collectionView.mj_header endRefreshing];
+               
                 self.items = [Item mj_objectArrayWithKeyValuesArray:[result[@"data"] objectForKey:@"items"]];
-                NSLog(@"%@",self.items);
-                [self.collectionView reloadData];
+          
+                dispatch_group_leave(group);
+       
             }
         }];
-    });
     
-    dispatch_group_async(group, queue, ^{
+        dispatch_group_enter(group);
+
         BannerRequest *bannerRequest = [[BannerRequest alloc] init];
         [bannerRequest starWithFinishedBlock:^(NSError *error, id result) {
            
             if (!error) {
                
                 self.banners = [Banner mj_objectArrayWithKeyValuesArray:[result[@"data"] objectForKey:@"banners"]];
-                NSLog(@"%@",self.banners);
+                dispatch_group_leave(group);
             
             }
         }];
-    });
-    
-    dispatch_group_async(group, queue, ^{
+
+        dispatch_group_enter(group);
+
         SecondBannerRequest *secondRequest = [[SecondBannerRequest alloc] init];
         [secondRequest starWithFinishedBlock:^(NSError *error, id result) {
             NSLog(@"SecondBanner error is:%@",error);
             if (!error) {
                 
                 self.secondBanners = [SecondBanner mj_objectArrayWithKeyValuesArray:[result[@"data"] objectForKey:@"secondary_banners"]];
-                NSLog(@"%@",self.secondBanners);
-               
+                dispatch_group_leave(group);
              
             }
         }];
-    });
+
 
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
 
-
+         [self.collectionView.mj_header endRefreshing];
         NSLog(@"%@===%@===%@",self.items,self.banners,self.secondBanners);
         [self.collectionView reloadData];
     });
