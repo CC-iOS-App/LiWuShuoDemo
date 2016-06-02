@@ -16,18 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setHidden:YES];
-    //self.navigationItem.leftBarButtonItem = nil;
-
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     
-
-    
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {

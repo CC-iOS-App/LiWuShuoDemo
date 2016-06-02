@@ -28,7 +28,7 @@
         <!--礼物说-->
         <scene sceneID="J7v-LV-qkQ">
             <objects>
-                <navigationController id="A6k-Wa-jiu" customClass="MainNavigationVC" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="A6k-Wa-jiu" customClass="MainNavigationVC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="礼物说" image="tabbar_home" selectedImage="tabbar_home_selected" id="iQI-AP-V90"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hRl-pP-OVt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -40,12 +40,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8L-Hz-YWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881" y="-708"/>
+            <point key="canvasLocation" x="898" y="-709"/>
         </scene>
         <!--热门-->
         <scene sceneID="vxG-aa-MSG">
             <objects>
-                <navigationController id="IQe-33-dvv" customClass="MainNavigationVC" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="IQe-33-dvv" customClass="MainNavigationVC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="热门" image="tabbar_gift" selectedImage="tabbar_gift_selected" id="Zau-w0-20h"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="H8q-wc-00T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -93,7 +93,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PopularCell" id="Enm-VK-o2y" customClass="PopularCell">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>

@@ -17,5 +17,9 @@
 
 @property (nonatomic, assign) CGSize likesLabelSize;
 
+@property (nonatomic, copy) NSString *itemId;
+
+@property (nonatomic, strong) NSURL *detailURL;
+
 
 @end

@@ -8,12 +8,15 @@
 
 #import "PopularCollectionVC.h"
 #import "UIImage+Extension.h"
+#import "UIView+FrameExtension.h"
 #import "UIColor+CustomColor.h"
 #import "PopularItemRequest.h"
 #import "MJExtension.h"
 #import "PopularItem.h"
 #import "PopularCell.h"
 #import "MJRefresh.h"
+
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
 
 static CGFloat const kMargin     = 10;
 static CGFloat const kItemHeight = 243;
@@ -24,6 +27,10 @@ static NSString * const reuseIdentifier = @"PopularCell";
 @property (nonatomic, strong) NSMutableArray *items;
 
 @property (nonatomic, strong) NSArray *refreshImages;
+
+@property (nonatomic, strong) UIButton *rightSideButton;
+@property (nonatomic, strong) UIView *naviView;
+@property (nonatomic, strong) UILabel *titleLabel;
 
 @end
 
@@ -44,6 +51,48 @@ static NSString * const reuseIdentifier = @"PopularCell";
     }
     return _items;
 }
+
+- (UIView *)naviView
+{
+    if (!_naviView) {
+        UIView *naviView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
+        naviView.backgroundColor = [UIColor themeColor];
+        _naviView = naviView;
+    }
+    return _naviView;
+}
+
+- (UILabel *)titleLabel
+{
+    if (!_titleLabel) {
+        UILabel *title = [[UILabel alloc] init];
+        title.text = @"热门";
+        title.font = [UIFont systemFontOfSize:17 weight:UIFontWeightThin];
+        title.textColor = [UIColor whiteColor];
+        [title sizeToFit];
+        title.center = CGPointMake(kScreenWidth * 0.5, 40);
+        _titleLabel = title;
+    }
+    return _titleLabel;
+}
+
+- (UIButton *)rightSideButton
+{
+    if (!_rightSideButton) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 40, 25, 30, 30)];
+        [button setImage:[UIImage nonRenderingImageName:@"icon_navigation_search"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(searchItemClicked) forControlEvents:UIControlEventTouchUpInside];
+        _rightSideButton = button;
+    }
+    return _rightSideButton;
+}
+
+
+- (void)searchItemClicked
+{
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -111,35 +160,23 @@ static NSString * const reuseIdentifier = @"PopularCell";
     self.collectionView.contentInset = UIEdgeInsetsMake(kMargin, kMargin, 0, kMargin);
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.backgroundColor = [UIColor collectionBackgroundColor];
+    self.collectionView.y = 44;
     
 }
 
 - (void)setUpNavigationItems
 {
-    self.title = @"热门";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage nonRenderingImageName:@"icon_navigation_search"] style:UIBarButtonItemStylePlain target:self action:@selector(searchItemClicked)];
+    [self.view addSubview:self.naviView];
+    [self.view addSubview:self.titleLabel];
+    [self.view addSubview:self.rightSideButton];
 }
 
-
-- (void)searchItemClicked
-{
-    NSLog(@"searchBarButtonItem Clicked");
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark <UICollectionViewDataSource>
 

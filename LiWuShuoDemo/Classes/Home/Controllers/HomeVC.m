@@ -25,10 +25,19 @@
 #import "TechRequest.h"
 #import "CutyRequest.h"
 #import "HomeCollectionVC.h"
+#import "UIColor+CustomColor.h"
 
 #import "CalenderVC.h"
 
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+
 @interface HomeVC ()
+
+@property (nonatomic, strong) UIView *naviView;
+@property (nonatomic, strong) UIButton *leftSideButton;
+@property (nonatomic, strong) UIButton *rightSideButton;
+@property (nonatomic, strong) UIImageView *titleView;
+
 
 @end
 
@@ -38,18 +47,21 @@
     [super viewDidLoad];
     [self setUpNavigationItems];
     [self setUpScrollPageView];
+  
 }
 
 - (void)setUpNavigationItems
 {
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_logo"]];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage nonRenderingImageName:@"icon_navigation_search"] style:UIBarButtonItemStylePlain target:self action:@selector(searchItemClicked)];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage nonRenderingImageName:@"feed_signin"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonItemClicked)];
+    [self.view addSubview:self.naviView];
+    [self.view addSubview:self.leftSideButton];
+    [self.view addSubview:self.rightSideButton];
+    [self.view addSubview:self.titleView];
+
 }
 
 - (void)setUpScrollPageView
 {
-    ScrollPageView *scrollPageView = [[ScrollPageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) childVCs:[self setupChildVcAndTitle] parentVC:self];
+    ScrollPageView *scrollPageView = [[ScrollPageView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height) childVCs:[self setupChildVcAndTitle] parentVC:self];
     [self.view addSubview:scrollPageView];
     scrollPageView.extraBtnClicked = ^(UIButton *extraBtn){
         NSLog(@"======");
@@ -130,12 +142,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setHidden:NO];
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -151,6 +157,50 @@
     CalenderVC *vc = [[CalenderVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - 懒加载
+- (UIView *)naviView
+{
+    if (!_naviView) {
+        UIView *naviView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
+        naviView.backgroundColor = [UIColor themeColor];
+        _naviView = naviView;
+    }
+    return _naviView;
+}
+
+- (UIButton *)leftSideButton
+{
+    if (!_leftSideButton) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(15, 25, 30, 30)];
+        [button setImage:[UIImage nonRenderingImageName:@"feed_signin"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(leftBarButtonItemClicked) forControlEvents:UIControlEventTouchUpInside];
+        _leftSideButton = button;
+    }
+    return _leftSideButton;
+}
+
+- (UIButton *)rightSideButton
+{
+    if (!_rightSideButton) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 40, 25, 30, 30)];
+        [button setImage:[UIImage nonRenderingImageName:@"icon_navigation_search"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(searchItemClicked) forControlEvents:UIControlEventTouchUpInside];
+        _rightSideButton = button;
+    }
+    return _rightSideButton;
+}
+
+- (UIImageView *)titleView
+{
+    if (!_titleView) {
+        UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage nonRenderingImageName:@"app_logo"]];
+        titleView.centerX = kScreenWidth * 0.5;
+        titleView.centerY = 40;
+        _titleView = titleView;
+    }
+    return _titleView;
 }
 
 @end

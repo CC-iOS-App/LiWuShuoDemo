@@ -71,6 +71,7 @@
 		B19F7CCF1CF6F7DD0030644D /* TopView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F7CCE1CF6F7DD0030644D /* TopView.m */; };
 		B19F7CD21CF705B80030644D /* TopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F7CD11CF705B80030644D /* TopCell.m */; };
 		B19F7CD81CF712640030644D /* HomeCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F7CD71CF712640030644D /* HomeCollectionVC.m */; };
+		B19F7D201D0018D70030644D /* HomeDetailPageToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F7D1F1D0018D70030644D /* HomeDetailPageToolBar.m */; };
 		B1D225281CF1A648001B1C82 /* TabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D225271CF1A648001B1C82 /* TabBarVC.m */; };
 		B1D2252B1CF1A74E001B1C82 /* MainNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D2252A1CF1A74E001B1C82 /* MainNavigationVC.m */; };
 		B1D2252E1CF1AE3B001B1C82 /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D2252D1CF1AE3B001B1C82 /* UIColor+CustomColor.m */; };
@@ -257,6 +258,8 @@
 		B19F7CD11CF705B80030644D /* TopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopCell.m; sourceTree = "<group>"; };
 		B19F7CD61CF712640030644D /* HomeCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionVC.h; sourceTree = "<group>"; };
 		B19F7CD71CF712640030644D /* HomeCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionVC.m; sourceTree = "<group>"; };
+		B19F7D1E1D0018D70030644D /* HomeDetailPageToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailPageToolBar.h; sourceTree = "<group>"; };
+		B19F7D1F1D0018D70030644D /* HomeDetailPageToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailPageToolBar.m; sourceTree = "<group>"; };
 		B1D225261CF1A648001B1C82 /* TabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarVC.h; sourceTree = "<group>"; };
 		B1D225271CF1A648001B1C82 /* TabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarVC.m; sourceTree = "<group>"; };
 		B1D225291CF1A74E001B1C82 /* MainNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationVC.h; sourceTree = "<group>"; };
@@ -787,6 +790,15 @@
 			path = OtherControllers;
 			sourceTree = "<group>";
 		};
+		B19F7D1D1D0018AC0030644D /* ToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				B19F7D1E1D0018D70030644D /* HomeDetailPageToolBar.h */,
+				B19F7D1F1D0018D70030644D /* HomeDetailPageToolBar.m */,
+			);
+			path = ToolBar;
+			sourceTree = "<group>";
+		};
 		B1D225321CF1AFE3001B1C82 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -833,6 +845,7 @@
 				B1D2254A1CF1D188001B1C82 /* HomeCell.xib */,
 				B19F7CD01CF705B80030644D /* TopCell.h */,
 				B19F7CD11CF705B80030644D /* TopCell.m */,
+				B19F7D1D1D0018AC0030644D /* ToolBar */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1093,6 +1106,7 @@
 				B16C7D3A1CE4B8A200D3CCB3 /* HttpConfiguration.m in Sources */,
 				B19F7CCF1CF6F7DD0030644D /* TopView.m in Sources */,
 				B19F7C841CF418030030644D /* MJRefreshAutoStateFooter.m in Sources */,
+				B19F7D201D0018D70030644D /* HomeDetailPageToolBar.m in Sources */,
 				B19F7C7E1CF418030030644D /* MJRefreshBackFooter.m in Sources */,
 				B16C7D501CE4B93500D3CCB3 /* AFURLSessionManager.m in Sources */,
 				B1D2253A1CF1AFE3001B1C82 /* BaseCollectionVC.m in Sources */,
