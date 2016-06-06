@@ -19,7 +19,7 @@
 
 @property (nonatomic, copy) NSString *itemId;
 
-@property (nonatomic, strong) NSURL *detailURL;
+
 
 
 @end

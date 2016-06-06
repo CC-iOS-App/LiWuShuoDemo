@@ -21,12 +21,5 @@
     return @{@"itemId" : @"id"};
 }
 
-- (NSURL *)detailURL
-{
-    NSString *url = [NSString stringWithFormat:@"http://api.liwushuo.com/v2/posts/%@?",_itemId];
-    return [NSURL URLWithString:url];
-}
-
-
 
 @end

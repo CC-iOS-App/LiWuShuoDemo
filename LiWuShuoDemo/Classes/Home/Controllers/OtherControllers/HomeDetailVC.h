@@ -1,5 +1,5 @@
 //
-//  HomeDetailPageToolBar.h
+//  DetailVC.h
 //  LiWuShuoDemo
 //
 //  Created by XUN WANG on 16/6/2.
@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class DetailItem;
-@interface HomeDetailPageToolBar : UIView
+@interface HomeDetailVC : UIViewController
 
-@property (nonatomic, strong) DetailItem *item;
+@property (nonatomic, copy) NSString *itemId;
 
 @end

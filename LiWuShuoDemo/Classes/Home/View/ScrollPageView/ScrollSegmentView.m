@@ -168,7 +168,7 @@ static CGFloat const kTitleMargin      = 20.0;
     
     __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:0.3 animations:^{
-        exLabel.textColor = [UIColor darkGrayColor];
+        exLabel.textColor = [UIColor grayColor];
         currentLabel.textColor = [UIColor themeColor];
         
         weakSelf.scrollLine.x = currentLabel.x;
@@ -203,7 +203,7 @@ static CGFloat const kTitleMargin      = 20.0;
         if (i == index) {
             label.textColor = [UIColor themeColor];
         }else {
-            label.textColor = [UIColor darkGrayColor];
+            label.textColor = [UIColor grayColor];
         }
         i++;
     }

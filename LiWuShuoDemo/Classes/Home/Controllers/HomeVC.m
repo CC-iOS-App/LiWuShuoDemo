@@ -26,6 +26,7 @@
 #import "CutyRequest.h"
 #import "HomeCollectionVC.h"
 #import "UIColor+CustomColor.h"
+#import "SearchVC.h"
 
 #import "CalenderVC.h"
 
@@ -149,7 +150,8 @@
 
 - (void)searchItemClicked
 {
-    
+    SearchVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchVC"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)leftBarButtonItemClicked

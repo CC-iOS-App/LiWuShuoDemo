@@ -15,6 +15,7 @@
 @property (nonatomic, assign) int favorites_count;
 @property (nonatomic, assign) float price;
 @property (nonatomic, strong) NSURL *url;
+@property (nonatomic, copy) NSString *itemId;
 
 @end
 

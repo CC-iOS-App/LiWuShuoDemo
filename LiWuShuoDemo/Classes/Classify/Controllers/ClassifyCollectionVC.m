@@ -7,93 +7,101 @@
 //
 
 #import "ClassifyCollectionVC.h"
+#import "FristCell.h"
+#import "SecondCell.h"
+#import "ClassifyRequest.h"
+#import "FirstItem.h"
+#import "MJExtension.h"
+
+static NSString * const firstCell = @"firstCell";
+static NSString * const secondCell = @"secondCell";
+static CGFloat const kMargin = 15;
 
 @interface ClassifyCollectionVC ()
+
+@property (nonatomic, strong) NSArray *channelGroups;
+@property (nonatomic, strong) NSArray *collections;
+@property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 
 @end
 
 @implementation ClassifyCollectionVC
 
-static NSString * const reuseIdentifier = @"Cell";
+- (NSArray *)channelGroups
+{
+    if (!_channelGroups) {
+        _channelGroups = [NSArray array];
+    }
+    return _channelGroups;
+}
+
+- (UICollectionViewFlowLayout *)layout
+{
+    if (!_layout) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.itemSize = CGSizeMake(70, 100);
+        layout.minimumLineSpacing = 20;
+//        layout.minimumInteritemSpacing = 25;
+    
+        _layout = layout;
+    }
+    return _layout;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.hidden = NO;
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    // Do any additional setup after loading the view.
+    [self getDataBack];
+    [self settingForColletionView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)settingForColletionView
+{
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.collectionViewLayout = self.layout;
+    [self.collectionView registerClass:[FristCell class] forCellWithReuseIdentifier:firstCell];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"SecondCell" bundle:nil] forCellWithReuseIdentifier:secondCell];
+    self.collectionView.contentInset = UIEdgeInsetsMake(kMargin, kMargin, kMargin, kMargin);
 }
 
-/*
-#pragma mark - Navigation
+- (void)getDataBack
+{
+//    dispatch_group_t group = dispatch_group_create();
+//    dispatch_group_enter(group);
+    
+    ChannelsRequest *firstRequest = [[ChannelsRequest alloc] init];
+    [firstRequest starWithFinishedBlock:^(NSError *error, id result) {
+        if (!error) {
+            self.channelGroups = [Channel mj_objectArrayWithKeyValuesArray:[result[@"data"] objectForKey:@"channel_groups"]];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+            [self.collectionView reloadData];
+        }
+    }];
 }
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+    return self.channelGroups.count;
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
+
+    Channel *channel = self.channelGroups[section];
+    return channel.channels.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    SecondCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:secondCell forIndexPath:indexPath];
     
-    // Configure the cell
+    Channel *channel = self.channelGroups[indexPath.section];
+    SecondItem *item = channel.channels[indexPath.row];
+    cell.item = item;
     
     return cell;
 }
 
-#pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
 
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

@@ -76,7 +76,164 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5H-xR-SXS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="-709"/>
+            <point key="canvasLocation" x="1607" y="-703"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="82s-xH-YTN">
+            <objects>
+                <tableViewController id="rho-Rv-lWy" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="nVq-EL-6MH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="大家都在搜" id="9Jq-Ej-mnN">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="132" id="Iat-1t-bjC">
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="132"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iat-1t-bjC" id="Mt2-AZ-9lq">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="131.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDh-Fc-8hN">
+                                                    <rect key="frame" x="0.0" y="1" width="294" height="129"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3p-3y-ACG">
+                                                            <rect key="frame" x="20" y="18" width="65" height="28"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                            <state key="normal" title="手机壳" backgroundImage="icon_regist_uncheck">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51L-es-qiX">
+                                                            <rect key="frame" x="93" y="18" width="50" height="28"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                            <state key="normal" title="情侣" backgroundImage="icon_regist_uncheck">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVd-OD-R1k">
+                                                            <rect key="frame" x="151" y="18" width="65" height="28"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                            <state key="normal" title="双肩包" backgroundImage="icon_regist_uncheck">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIP-uO-QQ9">
+                                                            <rect key="frame" x="224" y="18" width="50" height="28"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                            <state key="normal" title="手表" backgroundImage="icon_regist_uncheck">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZ2-yb-x6R">
+                                                            <rect key="frame" x="194" y="54" width="65" height="28"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                            <state key="normal" title="连衣裙" backgroundImage="icon_regist_uncheck">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4I-8t-zbw">
+                                                            <rect key="frame" x="136" y="54" width="50" height="28"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                            <state key="normal" title="钱包" backgroundImage="icon_regist_uncheck">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsV-0t-wre">
+                                                            <rect key="frame" x="78" y="54" width="50" height="28"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                            <state key="normal" title="杯子" backgroundImage="icon_regist_uncheck">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHb-NV-TmZ">
+                                                            <rect key="frame" x="20" y="54" width="50" height="28"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                            <state key="normal" title="凉鞋" backgroundImage="icon_regist_uncheck">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVi-lW-wKx">
+                                                            <rect key="frame" x="20" y="90" width="50" height="28"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                            <state key="normal" title="手链" backgroundImage="icon_regist_uncheck">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLO-ZF-c86">
+                                                            <rect key="frame" x="78" y="90" width="50" height="28"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                            <state key="normal" title="耳机" backgroundImage="icon_regist_uncheck">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsD-dh-mWx">
+                                                            <rect key="frame" x="136" y="90" width="50" height="28"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                            <state key="normal" title="项链" backgroundImage="icon_regist_uncheck">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oeu-Uq-GQu">
+                                                            <rect key="frame" x="194" y="90" width="50" height="28"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                            <state key="normal" title="耳钉" backgroundImage="icon_regist_uncheck">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="294" id="38M-fj-c6g"/>
+                                                        <constraint firstAttribute="height" constant="129" id="OgC-Br-obo"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RDh-Fc-8hN" firstAttribute="top" secondItem="Mt2-AZ-9lq" secondAttribute="top" constant="1" id="Rtd-73-gUr"/>
+                                                <constraint firstItem="RDh-Fc-8hN" firstAttribute="leading" secondItem="Mt2-AZ-9lq" secondAttribute="leading" id="srM-Yj-qWf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="poR-PA-49b">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="jSi-2B-8AG" imageView="h5o-n1-HQt" style="IBUITableViewCellStyleDefault" id="H6y-BA-IRZ">
+                                        <rect key="frame" x="0.0" y="217.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H6y-BA-IRZ" id="5BZ-WX-Akq">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="使用选礼神器快速挑选礼物" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jSi-2B-8AG">
+                                                    <rect key="frame" x="46" y="0.0" width="519" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="giftcategory_guide" id="h5o-n1-HQt">
+                                                    <rect key="frame" x="15" y="13" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="rho-Rv-lWy" id="4RU-4N-v65"/>
+                            <outlet property="delegate" destination="rho-Rv-lWy" id="Uz4-cf-gfY"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B38-Lj-8vo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2709" y="-1414"/>
         </scene>
         <!--Popular CollectionVC-->
         <scene sceneID="49a-TY-PHv">
@@ -112,6 +269,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSS-3k-LlN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1667" y="65"/>
+        </scene>
+        <!--SearchVC-->
+        <scene sceneID="DJV-1J-acv">
+            <objects>
+                <viewController storyboardIdentifier="SearchVC" hidesBottomBarWhenPushed="YES" id="gAV-rJ-CLz" customClass="SearchVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k7i-g3-Bok"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xqs-iQ-j5U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aqx-iL-tdt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISL-dx-l4I">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LF2-Zc-rwt">
+                                        <rect key="frame" x="555" y="26" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="TJk-7i-cOd"/>
+                                            <constraint firstAttribute="height" constant="30" id="fOf-jc-kXA"/>
+                                        </constraints>
+                                        <state key="normal" title="取消">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelBtnDidClicked:" destination="gAV-rJ-CLz" eventType="touchUpInside" id="ZIl-AB-Qd4"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="快选一份礼物，送给亲爱的Ta吧" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dWJ-bD-pnG">
+                                        <rect key="frame" x="8" y="26" width="539" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="hk2-x7-fs8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="yes" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.054901960780000002" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dWJ-bD-pnG" secondAttribute="bottom" constant="8" id="bNF-XF-9sp"/>
+                                    <constraint firstAttribute="height" constant="64" id="kPg-fM-1mR"/>
+                                    <constraint firstItem="dWJ-bD-pnG" firstAttribute="leading" secondItem="ISL-dx-l4I" secondAttribute="leading" constant="8" id="opO-Bb-o0K"/>
+                                    <constraint firstItem="LF2-Zc-rwt" firstAttribute="leading" secondItem="dWJ-bD-pnG" secondAttribute="trailing" constant="8" id="pTj-Z8-veL"/>
+                                    <constraint firstAttribute="trailing" secondItem="LF2-Zc-rwt" secondAttribute="trailing" constant="15" id="wSn-6l-5CJ"/>
+                                    <constraint firstItem="LF2-Zc-rwt" firstAttribute="top" secondItem="ISL-dx-l4I" secondAttribute="top" constant="26" id="zR8-pI-lv5"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6t1-po-xQg">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <segue destination="rho-Rv-lWy" kind="embed" id="KlP-2f-YH8"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ISL-dx-l4I" firstAttribute="leading" secondItem="aqx-iL-tdt" secondAttribute="leading" id="ADr-aQ-dvT"/>
+                            <constraint firstAttribute="trailing" secondItem="6t1-po-xQg" secondAttribute="trailing" id="J5o-jS-aTa"/>
+                            <constraint firstItem="6t1-po-xQg" firstAttribute="leading" secondItem="aqx-iL-tdt" secondAttribute="leading" id="Kmc-De-dcC"/>
+                            <constraint firstAttribute="trailing" secondItem="ISL-dx-l4I" secondAttribute="trailing" id="LEC-0L-3LU"/>
+                            <constraint firstItem="6t1-po-xQg" firstAttribute="top" secondItem="ISL-dx-l4I" secondAttribute="bottom" id="OGH-34-AfQ"/>
+                            <constraint firstItem="ISL-dx-l4I" firstAttribute="top" secondItem="aqx-iL-tdt" secondAttribute="top" id="aGP-K5-Z3f"/>
+                            <constraint firstItem="Xqs-iQ-j5U" firstAttribute="top" secondItem="6t1-po-xQg" secondAttribute="bottom" id="mgo-un-tJZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="dWJ-bD-pnG" id="EIJ-yW-KgM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jpc-Vy-Xgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1828" y="-1402"/>
         </scene>
         <!--分类-->
         <scene sceneID="GU7-BZ-jGO">
@@ -219,6 +449,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="giftcategory_guide" width="16" height="16"/>
+        <image name="icon_regist_uncheck" width="15" height="15"/>
         <image name="tabbar_category" width="22" height="22"/>
         <image name="tabbar_category_selected" width="22" height="22"/>
         <image name="tabbar_gift" width="22" height="22"/>

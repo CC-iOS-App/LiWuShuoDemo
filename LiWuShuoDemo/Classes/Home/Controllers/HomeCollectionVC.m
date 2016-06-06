@@ -17,6 +17,7 @@
 #import "MJRefresh.h"
 #import "Banner.h"
 #import "TopCell.h"
+#import "HomeDetailVC.h"
 
 static CGFloat const kMargin     = 10;
 static CGFloat const kItemHeight = 160;
@@ -110,7 +111,7 @@ static NSString * const kTopCellId = @"kTopCellId";
 
         HandPickrequest *request = [[HandPickrequest alloc] init];
         [request starWithFinishedBlock:^(NSError *error, id result) {
-            NSLog(@"Item error is:%@",error);
+//            NSLog(@"Item error is:%@",error);
             if (!error) {
                
                 self.items = [Item mj_objectArrayWithKeyValuesArray:[result[@"data"] objectForKey:@"items"]];
@@ -137,7 +138,7 @@ static NSString * const kTopCellId = @"kTopCellId";
 
         SecondBannerRequest *secondRequest = [[SecondBannerRequest alloc] init];
         [secondRequest starWithFinishedBlock:^(NSError *error, id result) {
-            NSLog(@"SecondBanner error is:%@",error);
+//            NSLog(@"SecondBanner error is:%@",error);
             if (!error) {
                 
                 self.secondBanners = [SecondBanner mj_objectArrayWithKeyValuesArray:[result[@"data"] objectForKey:@"secondary_banners"]];
@@ -150,7 +151,7 @@ static NSString * const kTopCellId = @"kTopCellId";
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
 
          [self.collectionView.mj_header endRefreshing];
-        NSLog(@"%@===%@===%@",self.items,self.banners,self.secondBanners);
+//        NSLog(@"%@===%@===%@",self.items,self.banners,self.secondBanners);
         [self.collectionView reloadData];
     });
 }
@@ -214,6 +215,12 @@ static NSString * const kTopCellId = @"kTopCellId";
     }else{
         HomeCell *cell = (HomeCell *)[collectionView cellForItemAtIndexPath:indexPath];
         [cell.tagNewImageView setHidden:YES];
+        Item *item = self.items[indexPath.row];
+        HomeDetailVC *vc = [[HomeDetailVC alloc] init];
+        vc.itemId = item.itemId;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }
 
     

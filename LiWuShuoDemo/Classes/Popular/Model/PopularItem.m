@@ -11,6 +11,11 @@
 
 @implementation PopularItem
 
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+     return @{@"itemId" : @"id"};
+}
+
 @end
 
 //@implementation SuperItem

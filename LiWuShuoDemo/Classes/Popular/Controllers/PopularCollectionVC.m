@@ -15,6 +15,8 @@
 #import "PopularItem.h"
 #import "PopularCell.h"
 #import "MJRefresh.h"
+#import "PopularDetailVC.h"
+#import "SearchVC.h"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 
@@ -90,7 +92,8 @@ static NSString * const reuseIdentifier = @"PopularCell";
 
 - (void)searchItemClicked
 {
-    
+    SearchVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchVC"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
@@ -197,6 +200,16 @@ static NSString * const reuseIdentifier = @"PopularCell";
     cell.item = item.data;
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PopularDetailVC *vc = [[PopularDetailVC alloc] init];
+    DataNType *item = self.items[indexPath.row];
+    
+    vc.itemId = item.data.itemId;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark <UICollectionViewDelegate>

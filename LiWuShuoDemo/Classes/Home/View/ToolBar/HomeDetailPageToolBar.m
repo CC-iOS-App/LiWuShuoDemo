@@ -8,6 +8,7 @@
 
 #import "HomeDetailPageToolBar.h"
 #import "UIView+FrameExtension.h"
+#import "DetailItem.h"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 
@@ -45,6 +46,7 @@
     if (self = [super initWithFrame:frame]) {
     
         [self addChildViews];
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -52,6 +54,7 @@
 - (void)addChildViews
 {
     UIButton *likesBtn = [self addButtonWithTitle:nil imageName:@"content-details_like" selectedImageName:@"content-details_like_selected"];
+    [likesBtn addTarget:self action:@selector(likesBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     _likesBtn = likesBtn;
     
     UIButton *shareBtn = [self addButtonWithTitle:nil imageName:@"content-details_share" selectedImageName:nil];
@@ -65,6 +68,10 @@
         [self addSubview:line];
         [self.lines addObject:line];
     }
+    
+    UIView *topLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0.5)];
+    topLine.backgroundColor = [UIColor lightGrayColor];
+    [self addSubview:topLine];
 }
 
 - (UIButton *)addButtonWithTitle:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selImgName
@@ -75,7 +82,7 @@
     [btn setImage:[UIImage imageNamed:selImgName] forState:UIControlStateSelected];
     btn.titleLabel.font = [UIFont systemFontOfSize:15];
     [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
+    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [self addSubview:btn];
     [self.btns addObject:btn];
     return btn;
@@ -99,10 +106,41 @@
     int j = 1;
     for (UIImageView *line in self.lines) {
         line.x = j * w;
+        line.y = 0.5 * (self.height - line.height);
         j++;
     }
+    
+    
 }
 
+- (void)setItem:(DetailItem *)item
+{
+    _item = item;
+
+    [self.likesBtn setTitle:[NSString stringWithFormat:@"%d",item.likes_count] forState:UIControlStateNormal];
+    [self.shareBtn setTitle:[NSString stringWithFormat:@"%d",item.shares_count] forState:UIControlStateNormal];
+    [self.commentBtn setTitle:[NSString stringWithFormat:@"%d",item.comments_count] forState:UIControlStateNormal];
+}
+
+- (void)likesBtnClicked:(UIButton *)sender
+{
+
+    
+    if (sender.selected) {
+        [sender setTitle:[NSString stringWithFormat:@"%d",--self.item.likes_count] forState:UIControlStateNormal];
+ 
+    }else {
+        [sender setTitle:[NSString stringWithFormat:@"%d",++self.item.likes_count] forState:UIControlStateNormal];
+    }
+
+    sender.selected = !sender.isSelected;
+    
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+    animation.values   = @[@0.95,@1.2,@1];
+    animation.keyTimes = @[@0.1,@0.6,@1];
+    [sender.imageView.layer addAnimation:animation forKey:nil];
+    
+}
 
 
 
