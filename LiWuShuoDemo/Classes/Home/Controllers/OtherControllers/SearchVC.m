@@ -26,8 +26,6 @@
 
 - (void)setUpSearchBar
 {
-   
-    
     UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"searchView"]];
     img.width = img.width + 10;
     img.contentMode = UIViewContentModeCenter;

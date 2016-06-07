@@ -1,5 +1,5 @@
 //
-//  FristCell.h
+//  SecondCell.h
 //  LiWuShuoDemo
 //
 //  Created by XUN WANG on 16/6/4.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class FirstItem;
-@interface FristCell : UICollectionViewCell
+@class SecondItem;
+@interface SecondCollectionCell : UICollectionViewCell
 
-@property (nonatomic, strong) FirstItem *item;
+@property (nonatomic, strong) SecondItem *item;
 
 @end

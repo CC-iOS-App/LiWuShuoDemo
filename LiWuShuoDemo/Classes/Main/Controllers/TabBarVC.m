@@ -8,10 +8,7 @@
 
 #import "TabBarVC.h"
 #import "UIColor+CustomColor.h"
-#import "BaseCollectionVC.h"
-#import "PopularCollectionVC.h"
-#import "ClassifyCollectionVC.h"
-#import "MyselfCollectionVC.h"
+
 
 @interface TabBarVC ()
 

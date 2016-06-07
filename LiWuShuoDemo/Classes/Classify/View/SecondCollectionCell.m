@@ -6,18 +6,18 @@
 //  Copyright © 2016年 XUN WANG. All rights reserved.
 //
 
-#import "SecondCell.h"
+#import "SecondCollectionCell.h"
 #import "UIView+FrameExtension.h"
 #import "FirstItem.h"
 #import "UIImageView+WebCache.h"
 
-@interface SecondCell ()
+@interface SecondCollectionCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
-@implementation SecondCell
+@implementation SecondCollectionCell
 
 - (void)awakeFromNib
 {

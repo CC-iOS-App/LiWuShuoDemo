@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kOtherCell" rowHeight="166" id="KGk-i7-Jjw" customClass="OtherCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="165.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJV-Gt-YYS">
+                        <rect key="frame" x="8" y="15" width="39" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="fLV-xX-0D2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TnL-9g-rer">
+                        <rect key="frame" x="0.0" y="37" width="320" height="128"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0Ix-nT-jEB">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="TnL-9g-rer" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="81B-B3-Nd5"/>
+                    <constraint firstItem="TnL-9g-rer" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="37" id="CpH-3Y-WZe"/>
+                    <constraint firstAttribute="bottom" secondItem="TnL-9g-rer" secondAttribute="bottom" constant="0.5" id="HFy-Jv-BKV"/>
+                    <constraint firstItem="UJV-Gt-YYS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Nm3-h4-QKT"/>
+                    <constraint firstItem="UJV-Gt-YYS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Z3S-HD-hlc"/>
+                    <constraint firstAttribute="trailing" secondItem="TnL-9g-rer" secondAttribute="trailing" id="abQ-jx-w4X"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="collectionView" destination="TnL-9g-rer" id="hIx-sA-FDu"/>
+                <outlet property="titleLabel" destination="UJV-Gt-YYS" id="LDj-SI-4Oo"/>
+            </connections>
+            <point key="canvasLocation" x="320" y="446"/>
+        </tableViewCell>
+    </objects>
+</document>
