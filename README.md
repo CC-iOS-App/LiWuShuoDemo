@@ -1,6 +1,6 @@
 # LiWuShuoDemo
 
-##礼物说仿写
+##礼物说仿写（updating...)
 ![](https://github.com/ioriginal/LiWuShuoDemo/raw/master/LiWuShuoDemo.gif)
 
 
