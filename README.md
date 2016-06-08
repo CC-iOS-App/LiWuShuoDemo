@@ -2,6 +2,8 @@
 
 ##礼物说仿写
 ![](https://github.com/ioriginal/LiWuShuoDemo/raw/master/LiWuShuoDemo.gif)
+
+
 api：
 礼物说 首页精选 banner2：
 http://api.liwushuo.com/v2/secondary_banners?gender=1&generation=2
