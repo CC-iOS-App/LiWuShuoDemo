@@ -95,6 +95,7 @@
 		B19F7D781D06733E0030644D /* OtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F7D761D06733E0030644D /* OtherCell.m */; };
 		B19F7D791D06733E0030644D /* OtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19F7D771D06733E0030644D /* OtherCell.xib */; };
 		B19F7D7C1D06A6D90030644D /* MyselfVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F7D7B1D06A6D90030644D /* MyselfVC.m */; };
+		B19F7D8E1D0BD86E0030644D /* ContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B19F7D8D1D0BD86E0030644D /* ContainerVC.m */; };
 		B1D225281CF1A648001B1C82 /* TabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D225271CF1A648001B1C82 /* TabBarVC.m */; };
 		B1D2252B1CF1A74E001B1C82 /* MainNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D2252A1CF1A74E001B1C82 /* MainNavigationVC.m */; };
 		B1D2252E1CF1AE3B001B1C82 /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D2252D1CF1AE3B001B1C82 /* UIColor+CustomColor.m */; };
@@ -321,6 +322,8 @@
 		B19F7D771D06733E0030644D /* OtherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherCell.xib; sourceTree = "<group>"; };
 		B19F7D7A1D06A6D90030644D /* MyselfVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyselfVC.h; sourceTree = "<group>"; };
 		B19F7D7B1D06A6D90030644D /* MyselfVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyselfVC.m; sourceTree = "<group>"; };
+		B19F7D8C1D0BD86E0030644D /* ContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerVC.h; sourceTree = "<group>"; };
+		B19F7D8D1D0BD86E0030644D /* ContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerVC.m; sourceTree = "<group>"; };
 		B1D225261CF1A648001B1C82 /* TabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarVC.h; sourceTree = "<group>"; };
 		B1D225271CF1A648001B1C82 /* TabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarVC.m; sourceTree = "<group>"; };
 		B1D225291CF1A74E001B1C82 /* MainNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationVC.h; sourceTree = "<group>"; };
@@ -915,6 +918,8 @@
 			children = (
 				B19F7D241D002E300030644D /* HomeDetailVC.h */,
 				B19F7D251D002E300030644D /* HomeDetailVC.m */,
+				B19F7D8C1D0BD86E0030644D /* ContainerVC.h */,
+				B19F7D8D1D0BD86E0030644D /* ContainerVC.m */,
 				B19F7CD91CF718940030644D /* OtherControllers */,
 				B19F7CBE1CF5B1840030644D /* HomeVC.h */,
 				B19F7CBF1CF5B1840030644D /* HomeVC.m */,
@@ -1210,6 +1215,7 @@
 				B19F7C7F1CF418030030644D /* MJRefreshComponent.m in Sources */,
 				B1D2253E1CF1B063001B1C82 /* PopularCollectionVC.m in Sources */,
 				B19F7D781D06733E0030644D /* OtherCell.m in Sources */,
+				B19F7D8E1D0BD86E0030644D /* ContainerVC.m in Sources */,
 				B19F7C951CF42EF70030644D /* GirlFriendRequest.m in Sources */,
 				B19F7C821CF418030030644D /* MJRefreshAutoGifFooter.m in Sources */,
 				B19F7D231D002C1E0030644D /* DetailItem.m in Sources */,

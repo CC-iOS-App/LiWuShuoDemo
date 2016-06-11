@@ -16,7 +16,7 @@
 #import "UIColor+CustomColor.h"
 
 static CGFloat const kToolBarHeight = 44.0;
-static CGFloat const kTopViewHeight = 200.0;
+static CGFloat const kTopViewHeight = 160.0;
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 
@@ -132,19 +132,18 @@ static CGFloat const kTopViewHeight = 200.0;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat offsetY = scrollView.contentOffset.y;
-    NSLog(@"%f",offsetY);
-    if (offsetY>-220) {
-        self.topView.y = 0 - 220 - offsetY;
-   
-            self.naviView.alpha = (offsetY+220) / 100;
+    if (offsetY>-180) {
+        self.topView.y = 0 - 180 - offsetY;
+        
+        self.naviView.alpha = (offsetY+180) / 100;
         if (self.naviView.alpha >= 1) {
             self.naviView.alpha = 1;
         }
-     
+        
     }
-    if (offsetY <= -220 && offsetY > -280) {
+    if (offsetY <= -180 && offsetY > -240) {
         self.topView.y = 0;
-        self.topView.height = kTopViewHeight - 220 - offsetY;
+        self.topView.height = kTopViewHeight - 180 - offsetY;
         self.naviView.alpha = 0;
     }
     
