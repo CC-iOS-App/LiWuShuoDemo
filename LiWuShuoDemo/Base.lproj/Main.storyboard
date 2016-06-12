@@ -402,6 +402,9 @@
                                     <constraint firstAttribute="width" constant="15" id="oyJ-og-2zU"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="me_message"/>
+                                <connections>
+                                    <action selector="messageBtnClicked:" destination="7Zl-HB-EPs" eventType="touchUpInside" id="asb-2Q-pjm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzo-XI-42K">
                                 <rect key="frame" x="55" y="25" width="15" height="15"/>
@@ -410,6 +413,9 @@
                                     <constraint firstAttribute="width" constant="15" id="xtE-ty-0GA"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="me_giftremind"/>
+                                <connections>
+                                    <action selector="messageBtnClicked:" destination="7Zl-HB-EPs" eventType="touchUpInside" id="pMw-iQ-xPc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsq-r9-giA">
                                 <rect key="frame" x="570" y="25" width="15" height="15"/>
@@ -417,7 +423,10 @@
                                     <constraint firstAttribute="height" constant="15" id="692-Dp-h7I"/>
                                     <constraint firstAttribute="width" constant="15" id="iBR-GL-myv"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="me_giftremind"/>
+                                <state key="normal" backgroundImage="iconSettings"/>
+                                <connections>
+                                    <segue destination="ZyR-4y-qNh" kind="show" id="M1e-Jj-2Nz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gy-7y-9Gq">
                                 <rect key="frame" x="530" y="25" width="15" height="15"/>
@@ -427,11 +436,27 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="me_scan"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FkF-Re-mpo">
+                                <rect key="frame" x="265" y="42" width="71" height="115"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="115" id="0rl-9Q-iH1"/>
+                                    <constraint firstAttribute="width" constant="71" id="1Wg-x3-maV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="-45" minY="50" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="40"/>
+                                <state key="normal" title="登录" image="me_avatar_boy"/>
+                                <connections>
+                                    <action selector="messageBtnClicked:" destination="7Zl-HB-EPs" eventType="touchUpInside" id="804-FZ-tFe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2W5-SR-8Fd" secondAttribute="trailing" id="6ih-cX-235"/>
                             <constraint firstAttribute="trailing" secondItem="wsq-r9-giA" secondAttribute="trailing" constant="15" id="Am1-Nf-8hr"/>
+                            <constraint firstItem="FkF-Re-mpo" firstAttribute="centerX" secondItem="ehJ-uw-uSB" secondAttribute="centerX" id="HUD-HN-zwx"/>
                             <constraint firstItem="Bzo-XI-42K" firstAttribute="top" secondItem="ehJ-uw-uSB" secondAttribute="top" constant="25" id="KmU-bm-UoB"/>
                             <constraint firstItem="kCR-k6-Qki" firstAttribute="top" secondItem="ehJ-uw-uSB" secondAttribute="top" constant="25" id="QCw-Hf-Zs3"/>
                             <constraint firstItem="2W5-SR-8Fd" firstAttribute="leading" secondItem="ehJ-uw-uSB" secondAttribute="leading" id="REj-ES-ztU"/>
@@ -440,6 +465,7 @@
                             <constraint firstItem="2W5-SR-8Fd" firstAttribute="top" secondItem="ehJ-uw-uSB" secondAttribute="top" id="gtq-aW-qxI"/>
                             <constraint firstItem="6Gy-7y-9Gq" firstAttribute="top" secondItem="ehJ-uw-uSB" secondAttribute="top" constant="25" id="lbO-5l-xTH"/>
                             <constraint firstItem="Bzo-XI-42K" firstAttribute="leading" secondItem="kCR-k6-Qki" secondAttribute="trailing" constant="25" id="mjM-Gp-bwC"/>
+                            <constraint firstItem="FkF-Re-mpo" firstAttribute="centerY" secondItem="ehJ-uw-uSB" secondAttribute="centerY" constant="-200.5" id="o3u-Bo-IBJ"/>
                             <constraint firstItem="wsq-r9-giA" firstAttribute="leading" secondItem="6Gy-7y-9Gq" secondAttribute="trailing" constant="25" id="sPC-mz-4AC"/>
                         </constraints>
                     </view>
@@ -447,7 +473,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5W-UZ-8WB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1585" y="1699"/>
+            <point key="canvasLocation" x="1616" y="1699"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="cyb-y4-eBg">
+            <objects>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="ZyR-4y-qNh" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bY4-Dv-xHz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Z8C-Eq-vuk">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z8C-Eq-vuk" id="LKD-OB-JnT">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ZyR-4y-qNh" id="mjh-O8-3KX"/>
+                            <outlet property="delegate" destination="ZyR-4y-qNh" id="IMh-jc-1sD"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JyA-h4-pfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2341" y="1677"/>
         </scene>
         <!--ClassifyVC-->
         <scene sceneID="hIb-qz-OC9">
@@ -503,8 +557,10 @@
     </scenes>
     <resources>
         <image name="giftcategory_guide" width="16" height="16"/>
+        <image name="iconSettings" width="18" height="18"/>
         <image name="icon_navigation_search" width="18" height="18"/>
         <image name="icon_regist_uncheck" width="15" height="15"/>
+        <image name="me_avatar_boy" width="66" height="65"/>
         <image name="me_giftremind" width="19" height="18"/>
         <image name="me_message" width="20" height="20"/>
         <image name="me_profilebackground" width="621" height="214"/>

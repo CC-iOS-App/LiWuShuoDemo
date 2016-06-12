@@ -110,7 +110,6 @@ static NSString * const kReuseIdentifier = @"Cell";
 
 - (void)loadMoreData
 {
-
     [self.loadMoreRequest starWithFinishedBlock:^(NSError *error, id result) {
         if (!error) {
             [self.collectionView.mj_footer endRefreshing];
@@ -120,20 +119,15 @@ static NSString * const kReuseIdentifier = @"Cell";
     }];
 }
 
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
-
 
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
@@ -163,7 +157,5 @@ static NSString * const kReuseIdentifier = @"Cell";
     
     
 }
-
-
 
 @end

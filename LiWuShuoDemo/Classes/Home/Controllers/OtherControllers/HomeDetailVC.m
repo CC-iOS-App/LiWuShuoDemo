@@ -139,7 +139,6 @@ static CGFloat const kTopViewHeight = 160.0;
         if (self.naviView.alpha >= 1) {
             self.naviView.alpha = 1;
         }
-        
     }
     if (offsetY <= -180 && offsetY > -240) {
         self.topView.y = 0;
@@ -148,7 +147,5 @@ static CGFloat const kTopViewHeight = 160.0;
     }
     
 }
-
-
 
 @end

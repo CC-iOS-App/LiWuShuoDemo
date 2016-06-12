@@ -7,6 +7,7 @@
 //
 
 #import "MyselfVC.h"
+#import "LogInController.h"
 
 @interface MyselfVC ()
 
@@ -20,6 +21,11 @@
 
 }
 
+- (IBAction)messageBtnClicked:(UIButton *)sender
+{
+    LogInController *vc = [[LogInController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 
 
